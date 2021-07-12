@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mascota index{% endblock %}
+
+{% block body %}
+
+    <div class="container colum-c justify-content-center">
+    {{parent()}}
+        <div class="row p-3 "> 
+            
+        <div class="col-md-8 justify-content-center">
+            <h1 > Listado de Mascotas </h1>
+        </div>
+        <div class="col-md-2 justify-content-end">
+            <a href="{{ path('edit_mascota_new') }}" class="btn btn-danger" role="button">Agregar Mascota</a>
+        </div>
+        
+        </div>
+        <div class="row p-3 ">
+                        <table class="table table-striped rounded-lg">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Edad</th>
+                                    <th>Raza</th>
+                                    <th>Color</th>
+                                    <th>Tamaño</th>
+                                    <th>Fecha de Ingreso</th>
+                                    <th>actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for mascotum in mascotas %}
+                                <tr>
+                                    <td>{{ mascotum.id }}</td>
+                                    <td>{{ mascotum.nombre }}</td>
+                                    <td>{{ mascotum.edad }}</td>
+                                    <td>{{ mascotum.raza }}</td>
+                                    <td>{{ mascotum.color }}</td>
+                                    <td>{{ mascotum.tamanio }}</td>
+                                    <td>{{ mascotum.fechaIngreso ? mascotum.fechaIngreso|date('Y-m-d') : '' }}</td>
+                                    <td>
+                                        <a href="{{ path('edit_mascota_show', {'id': mascotum.id}) }}" class="btn btn-danger" role="button">Ver</a>
+                                        <a href="{{ path('edit_mascota_edit', {'id': mascotum.id}) }}" class="btn btn-danger" role="button">Modificar</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="9">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+        </div>
+        <div class="row"> 
+           
+        </div>
+           
+            
+    </div>
+    
+{% endblock %}

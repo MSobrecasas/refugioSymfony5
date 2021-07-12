@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modificar Mascota{% endblock %}
+
+{% block body %}
+
+
+    <div class="container colum-c">
+        {{parent()}}
+        <div class="row justify-content-center">
+                    <h1>Modificar Mascota</h1>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+                        <div class="col-md-3">
+                            <h1>
+                        </div>
+                        <div class="col-md border border-danger tr-3">
+                            <h1>
+                            <h6>
+                            {{ include('edit_mascota/_form.html.twig', {'button_label': 'Guardar'}) }}
+                            <h6>
+                        </div>
+                        <div class="col-md-3">
+                            <h1>
+                        </div>
+            </div>  
+        </div>
+        <hr>
+        <div class="row p-3 justify-content-end">
+            {{ include('edit_mascota/_delete_form.html.twig') }}
+            <hr>
+            <a href="{{ path('edit_mascota_index') }}" class="btn btn-danger" role="button" >Volver a la lista</a>
+        </div>
+    </div>
+
+
+
+    
+  
+{% endblock %}

@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('adopcion_delete', {'id': adopcion.id}) }}" onsubmit="return confirm('Seguro quiere borrar esta adopcion?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ adopcion.id) }}">
+    <button class="btn btn-danger" role="button">Delete</button>
+</form>

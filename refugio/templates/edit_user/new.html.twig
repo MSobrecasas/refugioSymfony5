@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    
+<div class="container  colum-c">
+{{parent()}}
+    <div class="row justify-content-center">
+                <h1>Agregar Nuevo Usuario</h1>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+                    <div class="col-md-3">
+                        <h1>
+                    </div>
+                    <div class="col-md border border-danger tr-3">
+                        <h1>
+                        <h6>
+                        {{ include('edit_user/_form.html.twig') }}
+                        <h6>
+                    </div>
+                    <div class="col-md-3">
+                        <h1>
+                    </div>
+        </div>  
+    </div>
+    <hr>
+    <div class="row p-3 justify-content-end">
+        <a href="{{ path('edit_user_index') }}" class="btn btn-danger" role="button" >Volver a la lista</a>
+    </div>
+</div>
+
+
+
+    
+{% endblock %}

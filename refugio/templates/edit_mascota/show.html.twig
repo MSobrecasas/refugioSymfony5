@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mascota{% endblock %}
+
+{% block body %}
+
+    <div class="container  colum-c">
+        {{parent()}}
+            <div class="row justify-content-center">
+                <h1> Mascota</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h1>
+                    </div>
+                    <div class="col-md border border-danger tr-3">
+                        
+                        <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <div class="row justify-content-center">
+                                              
+                                              <h1> {{ mascotum.nombre }} </h1>
+                                            
+                                        </div>
+                                        <div class="row justify-content-center">
+                                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Shiba_inu_taiki.jpg/220px-Shiba_inu_taiki.jpg">
+                                             
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ mascotum.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Edad</th>
+                                        <td>{{ mascotum.edad }}</td>
+                                    </tr>
+                                     <tr>
+                                        <th>Tipo</th>
+                                        <td>{{ mascotum.tipo }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Raza</th>
+                                        <td>{{ mascotum.raza }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Color</th>
+                                        <td>{{ mascotum.color }}</td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <th>Tamaño</th>
+                                        <td>{{ mascotum.tamanio }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>FechaIngreso</th>
+                                        <td>{{ mascotum.fechaIngreso ? mascotum.fechaIngreso|date('Y-m-d') : '' }}</td>
+                                    </tr>
+                                   
+                                </tbody>
+                                    
+
+                            </table>
+                            <div class="row justify-content-center">
+                                <a href="{{ path('adopcion_new') }}" class="btn btn-danger" role="button">Gestionar Adopcion</a>  
+                            </div>
+                              <div class="col-md-3">
+                        <h1>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h1>
+                    </div>
+                </div>  
+            </div>
+            <hr>
+            <div class="row p-3 justify-content-end">
+                  {{ include('edit_mascota/_delete_form.html.twig') }}
+                <hr>
+                <a href="{{ path('edit_mascota_edit', {'id': mascotum.id}) }}" class="btn btn-danger" role="button">Modificar</a>
+                <hr>
+                <a href="{{ path('edit_mascota_index') }}" class="btn btn-danger" role="button" >Volver a la lista</a>
+            </div>
+    </div>
+   
+
+    
+
+    
+
+  
+{% endblock %}

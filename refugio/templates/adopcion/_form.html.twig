@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+
+    <div class="row-fluid">
+        {{ form_widget(form) }}        
+    </div>
+    <button class="btn btn-danger">{{ button_label|default('Guardar') }}</button>
+{{ form_end(form) }}

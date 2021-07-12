@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    
+        <div class="container  colum-c">
+        {{parent()}}
+            <div class="row justify-content-center">
+                <h1> Usuario</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h1>
+                    </div>
+                    <div class="col-md border border-danger tr-3">
+
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ user.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Username</th>
+                                    <td>{{ user.username }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Roles</th>
+                                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Password</th>
+                                    <td>{{ user.password }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <td>{{ user.nombre }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Apellido</th>
+                                    <td>{{ user.apellido }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Dni</th>
+                                    <td>{{ user.dni }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Direccion</th>
+                                    <td>{{ user.direccion }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>{{ user.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>CantidadMascotas</th>
+                                    <td>{{ user.cantidadMascotas }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Telefono</th>
+                                    <td>{{ user.telefono }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                    <div class="col-md-3">
+                        <h1>
+                    </div>
+                </div>  
+            </div>
+            <hr>
+            <div class="row p-3 justify-content-end">
+                  {{ include('edit_user/_delete_form.html.twig') }}
+                <hr>
+                <a href="{{ path('edit_user_edit', {'id': user.id}) }}" class="btn btn-danger" role="button">Modificar</a>
+                <hr>
+                <a href="{{ path('edit_user_index') }}" class="btn btn-danger" role="button" >Volver a la lista</a>
+            </div>
+    </div>
+    
+{% endblock %}

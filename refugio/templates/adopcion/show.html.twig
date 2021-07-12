@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adopcion{% endblock %}
+
+{% block body %}
+   
+       <div class="container  colum-c">
+        {{parent()}}
+            <div class="row justify-content-center">
+                <h1> Adopcion</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h1>
+                    </div>
+                    <div class="col-md border border-danger tr-3">
+
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ adopcion.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Adoptante</th>
+                                        <td>{{ adopcion.usuario.apellido }},{{ adopcion.usuario.nombre }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mascota</th>
+                                        <td>{{ adopcion.mascota.nombre }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mascota Edad</th>
+                                        <td>{{ adopcion.mascota.edad }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mascota Color</th>
+                                        <td>{{ adopcion.mascota.color }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>FechaAdopcion</th>
+                                        <td>{{ adopcion.fechaAdopcion ? adopcion.fechaAdopcion|date('d-m-Y') : '' }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                      </div>
+                    <div class="col-md-3">
+                        <h1>
+                    </div>
+                </div>  
+            </div>
+            <hr>
+            <div class="row p-3 justify-content-end">
+                  {{ include('adopcion/_delete_form.html.twig') }}
+                <hr>
+                <a href="{{ path('adopcion_edit', {'id': adopcion.id}) }}" class="btn btn-danger" role="button">Modificar</a>
+                <hr>
+                <a href="{{ path('adopcion_index') }}" class="btn btn-danger" role="button" >Volver a la lista</a>
+            </div>
+    </div>
+    
+
+
+  
+
+    
+{% endblock %}
